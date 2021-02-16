@@ -9,16 +9,17 @@ import PasswordForgetPage from "../passwordForget";
 import HomePage from "../home";
 import AccountPage from "../account";
 import AdminPage from "../admin";
+import RecordPage from "../record";
+import SummaryPage from "../summary";
 
 import * as ROUTES from "../../constants/routes";
 import { withAuthentication } from "../session";
+import "./app.scss";
 
 const App = () => (
   <Router>
     <div>
       <Navigation />
-
-      <hr />
 
       <Route exact path={ROUTES.LANDING} component={LandingPage} />
       <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
@@ -26,6 +27,8 @@ const App = () => (
       <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
       <Route path={ROUTES.HOME} component={HomePage} />
       <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+      <Route path={ROUTES.RECORD} component={RecordPage} />
+      <Route path={ROUTES.SUMMARY} component={SummaryPage} />
       {/*<Route path={ROUTES.ADMIN} component={AdminPage} />*/}
       <Redirect from="*" to="/" />
     </div>

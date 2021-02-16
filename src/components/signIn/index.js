@@ -6,15 +6,31 @@ import { SignUpLink } from "../signUp";
 import { PasswordForgetLink } from "../passwordForget";
 import { withFirebase } from "../firebase";
 import * as ROUTES from "../../constants/routes";
+import { useHistory } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import "./signIn.scss";
 
-const SignInPage = () => (
-  <div>
-    <h1>SignIn</h1>
-    <SignInForm />
-    <PasswordForgetLink />
-    <SignUpLink />
-  </div>
-);
+const SignInPage = () => {
+  let history = useHistory();
+
+  function handleClick() {
+    history.push(ROUTES.LANDING);
+  }
+
+  return (
+    <div className="signIn-main">
+      <div>
+        <Button variant="primary" onClick={handleClick}>
+          Back
+        </Button>
+        <h1>SignIn</h1>
+        <SignInForm />
+        <PasswordForgetLink />
+        <SignUpLink />
+      </div>
+    </div>
+  );
+};
 
 const INITIAL_STATE = {
   email: "",
@@ -63,6 +79,7 @@ class SignInFormBase extends Component {
           type="text"
           placeholder="Email Address"
         />
+        <br />
         <input
           name="password"
           value={password}
@@ -70,9 +87,10 @@ class SignInFormBase extends Component {
           type="password"
           placeholder="Password"
         />
-        <button disabled={isInvalid} type="submit">
+        <br />
+        <Button disabled={isInvalid} type="submit">
           Sign In
-        </button>
+        </Button>
 
         {error && <p>{error.message}</p>}
       </form>
