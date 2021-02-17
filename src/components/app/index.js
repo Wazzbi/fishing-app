@@ -11,6 +11,7 @@ import AccountPage from "../account";
 import AdminPage from "../admin";
 import RecordPage from "../record";
 import SummaryPage from "../summary";
+import Dashboard from "../dashboard";
 
 import * as ROUTES from "../../constants/routes";
 import { withAuthentication } from "../session";
@@ -29,6 +30,7 @@ const App = () => (
       <Route path={ROUTES.ACCOUNT} component={AccountPage} />
       <Route path={ROUTES.RECORD} component={RecordPage} />
       <Route path={ROUTES.SUMMARY} component={SummaryPage} />
+      <Route path={ROUTES.DASHBOARD} component={Dashboard} />
       {/*<Route path={ROUTES.ADMIN} component={AdminPage} />*/}
       <Redirect from="*" to="/" />
     </div>

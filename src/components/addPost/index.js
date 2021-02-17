@@ -2,6 +2,8 @@ import { React, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import "./addPost.scss";
 
+// TODO: udělat nahrávání příspěvků na server a eventuálně refresh homepage kdy by přidaný kontent šel vidět
+
 const AddPost = () => {
   const [show, setShow] = useState(false);
 

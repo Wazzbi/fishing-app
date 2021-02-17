@@ -7,3 +7,4 @@ export const ACCOUNT = "/account";
 export const PASSWORD_FORGET = "/pw-forget";
 export const RECORD = "/record";
 export const SUMMARY = "/summary";
+export const DASHBOARD = "/dashboard";

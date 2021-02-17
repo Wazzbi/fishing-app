@@ -5,7 +5,7 @@ import AddPost from "../addPost";
 
 import { withAuthorization, AuthUserContext } from "../session";
 
-//TODO: home by měla nařítat příspěvky ze serveru + infinite scroll
+//TODO: home by měla načítat příspěvky ze serveru + infinite scroll
 
 const HomePage = () => (
   <AuthUserContext.Consumer>

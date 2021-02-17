@@ -1,3 +1,7 @@
+# TODO
+
+F5 (refresh) způsobuje chybu při načítání na některých stránkách
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
