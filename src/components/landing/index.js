@@ -11,6 +11,8 @@ const Landing = () => {
     history.push(ROUTES.SIGN_IN);
   }
 
+  // TODO: když přihlášený zobraz namísto sign in tlačítko getIn a routuj na homepage
+
   return (
     <div className="landing-main">
       <div>

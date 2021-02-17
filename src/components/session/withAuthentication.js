@@ -10,6 +10,7 @@ const withAuthentication = (Component) => {
 
       this.state = {
         authUser: null,
+        currentUser: null,
       };
     }
 
@@ -19,6 +20,14 @@ const withAuthentication = (Component) => {
           authUser
             ? this.setState({ authUser })
             : this.setState({ authUser: null });
+
+          this.props.firebase
+            .getUserData(authUser.uid)
+            .then((currentUser) =>
+              currentUser
+                ? this.setState({ currentUser })
+                : this.setState({ currentUser: null })
+            );
         }
       );
     }
@@ -29,7 +38,7 @@ const withAuthentication = (Component) => {
 
     render() {
       return (
-        <AuthUserContext.Provider value={this.state.authUser}>
+        <AuthUserContext.Provider value={this.state}>
           <Component {...this.props} />
         </AuthUserContext.Provider>
       );

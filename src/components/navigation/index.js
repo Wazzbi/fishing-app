@@ -10,7 +10,7 @@ import { Navbar, Nav } from "react-bootstrap";
 const Navigation = ({ authUser }) => (
   <div>
     <AuthUserContext.Consumer>
-      {(authUser) => (authUser ? <NavigationAuth /> : "")}
+      {({ authUser }) => (authUser ? <NavigationAuth /> : "")}
     </AuthUserContext.Consumer>
   </div>
 );

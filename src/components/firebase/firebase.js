@@ -40,6 +40,37 @@ class Firebase {
   user = (uid) => this.db.ref(`users/${uid}`);
 
   users = () => this.db.ref("users");
+
+  // getCurrentUser = () => {
+  //   return new Promise((resolve, reject) => {
+  //     const unsubscribe = this.auth.onAuthStateChanged((userAuth) => {
+  //       unsubscribe();
+  //       resolve(userAuth);
+  //     }, reject);
+  //   });
+  // };
+
+  // getUserData = async () => {
+  //   let uid = await this.getCurrentUser().then(
+  //     (userAuth) => !!userAuth && userAuth.uid
+  //   );
+
+  //   this.user(uid)
+  //     .get()
+  //     .then((snapshot) =>
+  //       snapshot.exists() ? snapshot.val() : console.log("No data available")
+  //     )
+  //     .catch((err) => console.warn(err));
+  // };
+
+  getUserData = (uid) => {
+    return this.user(uid)
+      .get()
+      .then((snapshot) =>
+        snapshot.exists() ? snapshot.val() : console.log("No data available")
+      )
+      .catch((err) => console.warn(err));
+  };
 }
 
 export default Firebase;

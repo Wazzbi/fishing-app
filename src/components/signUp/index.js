@@ -27,8 +27,10 @@ class SignUpFormBase extends Component {
     this.state = { ...INITIAL_STATE };
   }
 
+  // TODO: kontrolovat zdali již na daný email není vytvořený účet
   onSubmit = (event) => {
     const { username, email, passwordOne } = this.state;
+    const role = "user";
 
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
@@ -37,6 +39,7 @@ class SignUpFormBase extends Component {
         return this.props.firebase.user(authUser.user.uid).set({
           username,
           email,
+          role,
         });
       })
       .then(() => {
