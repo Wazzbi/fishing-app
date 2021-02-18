@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 
 import SignOutButton from "../signOut";
@@ -25,36 +25,49 @@ const Navigation = (props) => {
 // kdyby bylo třeba, tak je to skoro u konce..
 // https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial
 
-const NavigationAuth = () => (
-  <Navbar bg="light" expand="lg">
-    <Navbar.Brand href="#home">Fishing-App</Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="mr-auto">
-        {/* <Nav.Link href="#home">
+const NavigationAuth = () => {
+  const [navExpanded, setNavExpanded] = useState(false);
+
+  const closeNav = () => {
+    setNavExpanded(false);
+  };
+
+  return (
+    <Navbar
+      bg="light"
+      expand="lg"
+      onToggle={(state) => setNavExpanded(state)}
+      expanded={navExpanded}
+    >
+      <Navbar.Brand href="#home">Fishing-App</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          {/* <Nav.Link href="#home">
           <Link to={ROUTES.LANDING}>Landing</Link>
         </Nav.Link> */}
-        <Nav.Link href="#home">
-          <Link to={ROUTES.DASHBOARD}>Dashboard</Link>
-        </Nav.Link>
-        <Nav.Link href="#link">
-          <Link to={ROUTES.HOME}>Home</Link>
-        </Nav.Link>
-        <Nav.Link href="#link">
-          <Link to={ROUTES.ACCOUNT}>Account</Link>
-        </Nav.Link>
-        <Nav.Link href="#link">
-          <Link to={ROUTES.RECORD}>Record</Link>
-        </Nav.Link>
-        <Nav.Link href="#link">
-          <Link to={ROUTES.SUMMARY}>Summary</Link>
-        </Nav.Link>
-        {/*<Nav.Link href="#link"><Link to={ROUTES.ADMIN}>Admin</Link></Nav.Link>*/}
-        <SignOutButton />
-      </Nav>
-    </Navbar.Collapse>
-  </Navbar>
-);
+          <Nav.Link href="#link" onSelect={closeNav}>
+            <Link to={ROUTES.DASHBOARD}>Dashboard</Link>
+          </Nav.Link>
+          <Nav.Link href="#link" onSelect={closeNav}>
+            <Link to={ROUTES.HOME}>Home</Link>
+          </Nav.Link>
+          <Nav.Link href="#link" onSelect={closeNav}>
+            <Link to={ROUTES.ACCOUNT}>Account</Link>
+          </Nav.Link>
+          <Nav.Link href="#link" onSelect={closeNav}>
+            <Link to={ROUTES.RECORD}>Record</Link>
+          </Nav.Link>
+          <Nav.Link href="#link" onSelect={closeNav}>
+            <Link to={ROUTES.SUMMARY}>Summary</Link>
+          </Nav.Link>
+          {/*<Nav.Link href="#link"><Link to={ROUTES.ADMIN}>Admin</Link></Nav.Link>*/}
+          <SignOutButton />
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  );
+};
 
 const NavigationNonAuth = () => (
   <ul>

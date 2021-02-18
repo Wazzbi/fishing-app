@@ -1,0 +1,34 @@
+.summary-main {
+  margin: 5px;
+  margin-right: 0;
+  margin-bottom: 40px;
+}
+
+.summary-title {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.summary-icon {
+  margin-left: 20px;
+}
+
+// TODO: toto předělat pomocí pseudo class
+.summary-icon-last {
+  margin: 0 20px;
+}
+
+.summary-table-wrapper {
+  position: relative;
+  margin-top: 50px;
+  margin-left: 20px;
+}
+
+table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-bottom: 0 !important;
+}

@@ -1,0 +1,10 @@
+.dashboard-main {
+  height: calc(100vh - 56px);
+  display: grid;
+  place-items: center;
+  text-align: center;
+
+  * {
+    margin: 10px;
+  }
+}
