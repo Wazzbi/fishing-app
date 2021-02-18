@@ -22,7 +22,7 @@ const withAuthentication = (Component) => {
             : this.setState({ authUser: null });
 
           this.props.firebase
-            .getUserData(authUser.uid)
+            .getUserData(authUser && authUser.uid)
             .then((currentUser) =>
               currentUser
                 ? this.setState({ currentUser })

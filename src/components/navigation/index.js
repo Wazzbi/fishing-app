@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 import SignOutButton from "../signOut";
 import * as ROUTES from "../../constants/routes";
@@ -7,13 +7,19 @@ import { AuthUserContext } from "../session";
 
 import { Navbar, Nav } from "react-bootstrap";
 
-const Navigation = ({ authUser }) => (
-  <div>
-    <AuthUserContext.Consumer>
-      {({ authUser }) => (authUser ? <NavigationAuth /> : "")}
-    </AuthUserContext.Consumer>
-  </div>
-);
+const Navigation = (props) => {
+  if (props.location.pathname !== ROUTES.LANDING) {
+    return (
+      <div>
+        <AuthUserContext.Consumer>
+          {({ authUser }) => (authUser ? <NavigationAuth /> : "")}
+        </AuthUserContext.Consumer>
+      </div>
+    );
+  }
+
+  return null;
+};
 
 // admina nepotřebuji, ale stránku jde přímo přejít i bez prihlášení
 // kdyby bylo třeba, tak je to skoro u konce..
@@ -61,4 +67,4 @@ const NavigationNonAuth = () => (
   </ul>
 );
 
-export default Navigation;
+export default withRouter(Navigation);
