@@ -26,8 +26,18 @@ class Firebase {
   doCreateUserWithEmailAndPassword = (email, password) =>
     this.auth.createUserWithEmailAndPassword(email, password);
 
-  doSignInWithEmailAndPassword = (email, password) =>
-    this.auth.signInWithEmailAndPassword(email, password);
+  doSignInWithEmailAndPassword = (email, password) => {
+    // console.log("hello 1");
+    return this.auth.signInWithEmailAndPassword(email, password);
+    // console.log("hello 1");
+    // this.auth
+    //   .setPersistence(this.auth.Auth.Persistence.SESSION)
+    //   .then(() => {
+    //     console.log("hello 2");
+    //     return this.auth.signInWithEmailAndPassword(email, password);
+    //   })
+    //   .catch((err) => console.warn(`${err.code}: ${err.messsage}`));
+  };
 
   doSignOut = () => this.auth.signOut();
 

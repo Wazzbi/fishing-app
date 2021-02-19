@@ -1,9 +1,9 @@
 import { React, useEffect, useState } from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import * as ROUTES from "../../constants/routes";
 import { useHistory } from "react-router-dom";
 import "./landing.scss";
-import { withAuthorization } from "../session";
+import { withFirebase } from "../firebase";
 
 const Landing = (props) => {
   let history = useHistory();
@@ -70,6 +70,4 @@ const Landing = (props) => {
   return <Landing />;
 };
 
-const condition = (authUser) => true;
-
-export default withAuthorization(condition)(Landing);
+export default withFirebase(Landing);

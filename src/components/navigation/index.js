@@ -32,6 +32,8 @@ const NavigationAuth = () => {
     setNavExpanded(false);
   };
 
+  //TODO: Fishing-App ostylovat aby to nevypadalo jako link
+
   return (
     <Navbar
       bg="light"
@@ -39,7 +41,9 @@ const NavigationAuth = () => {
       onToggle={(state) => setNavExpanded(state)}
       expanded={navExpanded}
     >
-      <Navbar.Brand href="#home">Fishing-App</Navbar.Brand>
+      <Navbar.Brand href="#home">
+        <Link to={ROUTES.DASHBOARD}>Fishing-App</Link>
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">

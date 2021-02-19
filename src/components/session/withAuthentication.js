@@ -14,6 +14,8 @@ const withAuthentication = (Component) => {
       };
     }
 
+    //TODO: při refresh prohlížeče je uživatel hozený na "/"
+
     componentDidMount() {
       this.listener = this.props.firebase.auth.onAuthStateChanged(
         (authUser) => {

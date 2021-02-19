@@ -32,3 +32,34 @@ table {
   white-space: nowrap;
   margin-bottom: 0 !important;
 }
+
+.dropdown-toggle.btn.btn-primary {
+  color: black;
+  background-color: transparent;
+  border-color: transparent;
+
+  &::after {
+    content: none;
+  }
+}
+
+.btn-primary.dropdown-toggle {
+  color: black !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.btn-primary.dropdown-toggle:focus {
+  box-shadow: none !important;
+}
+
+.btn {
+  &:focus {
+    box-shadow: none !important;
+  }
+}

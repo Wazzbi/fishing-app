@@ -14,19 +14,6 @@ const withAuthorization = (condition) => (Component) => {
           if (!condition(authUser)) {
             this.props.history.push(ROUTES.SIGN_IN);
           }
-          // if (
-          //   !condition(authUser) &&
-          //   this.props.location.pathname === ROUTES.LANDING
-          // ) {
-          //   return null;
-          // } else if (!condition(authUser)) {
-          //   this.props.history.push(ROUTES.SIGN_IN);
-          // } else if (
-          //   condition(authUser) &&
-          //   this.props.location.pathname === ROUTES.LANDING
-          // ) {
-          //   this.props.history.push(ROUTES.DASHBOARD);
-          // }
         }
       );
     }
@@ -38,7 +25,7 @@ const withAuthorization = (condition) => (Component) => {
     render() {
       return (
         <AuthUserContext.Consumer>
-          {(authUser) =>
+          {({ authUser }) =>
             condition(authUser) ? <Component {...this.props} /> : null
           }
         </AuthUserContext.Consumer>
